@@ -1,0 +1,6 @@
+name: iNeedTheNight
+version: '${project.version}'
+main: com.shinybunny.intn.INeedTheNight
+api-version: 1.19
+authors: [ TheShinyBunny ]
+description: A simple plugin to let players who need the night to prevent others from skipping it by sleeping
