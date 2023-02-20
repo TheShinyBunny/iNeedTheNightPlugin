@@ -11,6 +11,10 @@ public class TimeChecker extends BukkitRunnable {
         this.plugin = plugin;
     }
 
+    public void start() {
+        runTaskTimer(plugin, 20, 20);
+    }
+
     @Override
     public void run() {
         if (Bukkit.getServer().getWorlds().get(0).isDayTime()) {

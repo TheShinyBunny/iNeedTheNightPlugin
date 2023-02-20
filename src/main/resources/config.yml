@@ -1,6 +1,6 @@
 messages:
   # Sent when a player uses /dontsleep
-  disabled-sleep: "<red><bold><player> needs the night"
+  disabled-sleep: "<red><bold>[!]</bold> <player> needs the night"
   # Sent when a player has already run /dontsleep tonight
   already-prevented: "<red>You already prevented sleeping!"
   # Sent when a player used and confirmed /allowsleep

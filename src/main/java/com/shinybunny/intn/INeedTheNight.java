@@ -16,6 +16,8 @@ public final class INeedTheNight extends JavaPlugin {
         saveDefaultConfig();
         BukkitCommandHandler commandHandler = BukkitCommandHandler.create(this);
         commandHandler.register(new MyCommands());
+        TimeChecker timeChecker = new TimeChecker(this);
+        timeChecker.start();
     }
 
     @Override
