@@ -26,7 +26,7 @@ public class MyCommands {
 
     private final Set<Player> awaitingConfirmation = new HashSet<>();
 
-    @Command({"iwanttosleep","allowsleep","letmesleep"})
+    @Command({"iwanttosleep","allowsleep","letmesleep","enablesleep"})
     @AutoComplete("* confirm")
     public void iwanttosleep(Player sender, @Optional String confirm) {
         if (confirm != null && confirm.equalsIgnoreCase("confirm")) {

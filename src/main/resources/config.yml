@@ -6,8 +6,8 @@ messages:
   # Sent when a player used and confirmed /allowsleep
   enabled-sleep: "<green><bold><player> enabled sleeping though this night"
   # Sent when running /allowsleep to request the user to confirm the action using /allowsleep confirm
-  confirm-enable-sleep: "<yellow>There are player(s) that need this night. Are you sure you want to do davka? \n<green>Use <purple><click:suggest_command:/allowsleep confirm>/allowsleep confirm</click><green> to confirm."
+  confirm-enable-sleep: "<yellow>There are player(s) that need this night. Are you sure you want to do davka? \n<green>Use <purple><click:suggest_command:/enablesleep confirm>/enablesleep confirm</click><green> to confirm."
   # Sent when trying to confirm /allowsleep before running the command by itself
-  confirmation-required: "<red>You must use <yellow><click:suggest_command:/allowsleep>/allowsleep</click><red> alone before confirming!"
+  confirmation-required: "<red>You must use <yellow><click:suggest_command:/enablesleep>/enablesleep</click><red> alone before confirming!"
   # Sent as an actionbar (above the hotbar) when trying to sleep, but it was prevented.
   cannot-sleep: "<red>You may not rest now because <players> need the night"
