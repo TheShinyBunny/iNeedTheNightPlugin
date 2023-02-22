@@ -1,5 +1,6 @@
 package com.shinybunny.intn;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import revxrsal.commands.bukkit.BukkitCommandHandler;
@@ -16,6 +17,7 @@ public final class INeedTheNight extends JavaPlugin {
         saveDefaultConfig();
         BukkitCommandHandler commandHandler = BukkitCommandHandler.create(this);
         commandHandler.register(new MyCommands());
+        Bukkit.getPluginManager().registerEvents(new SleepingListener(this), this);
         TimeChecker timeChecker = new TimeChecker(this);
         timeChecker.start();
     }

@@ -1,6 +1,7 @@
 package com.shinybunny.intn;
 
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.minimessage.tag.resolver.Formatter;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,7 +20,10 @@ public class SleepingListener implements Listener {
         if (!plugin.needTheNight.isEmpty()) {
             String playerNames = INeedTheNight.combineNames(plugin.needTheNight.stream().map(Player::getName).toList());
             event.getPlayer().sendActionBar(MiniMessage.miniMessage()
-                    .deserialize(plugin.getMessage("messages.cannot-sleep"), Placeholder.unparsed("players", playerNames)));
+                    .deserialize(plugin.getMessage("messages.cannot-sleep"),
+                            Placeholder.unparsed("players", playerNames),
+                            Formatter.number("player-count", plugin.needTheNight.size()),
+                            Formatter.choice("players-choice", plugin.needTheNight.size())));
             event.setCancelled(true);
         }
     }
