@@ -5,12 +5,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import revxrsal.commands.bukkit.BukkitCommandHandler;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import javax.annotation.Nullable;
+import java.util.*;
 
 public final class INeedTheNight extends JavaPlugin {
     public final Set<Player> needTheNight = new HashSet<>();
+    private Map<String, String> messages;
 
     @Override
     public void onEnable() {
@@ -20,6 +20,8 @@ public final class INeedTheNight extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new SleepingListener(this), this);
         TimeChecker timeChecker = new TimeChecker(this);
         timeChecker.start();
+
+        loadMessages();
     }
 
     @Override
@@ -27,8 +29,13 @@ public final class INeedTheNight extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public String getMessage(String key) {
-        return getConfig().getString(key, "Error: missing message " + key);
+    /**
+     * Gets the requested message from the config file. Might return null if key does not exist.
+     * @param key The Key leading to the message. Sections are seperated with a dot.
+     * @return The message stored on the given key, or alternatively null if there is no value for the given key.
+     */
+    public @Nullable String getMessage(String key) {
+        return messages.get(key);
     }
 
     public static String combineNames(List<String> items) {
@@ -53,4 +60,13 @@ public final class INeedTheNight extends JavaPlugin {
         }
         return str.toString();
     }
+
+    private Map<String, String> loadMessages() {
+        Map<String, String> messages = new HashMap<>();
+
+        getConfig().getKeys(true).forEach(key -> messages.put(key, getConfig().getString(key)));
+
+        return messages;
+    }
+    
 }
